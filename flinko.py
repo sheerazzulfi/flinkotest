@@ -20,7 +20,7 @@ def login(token):
     out = json.loads(pes.content)
     exid = out['responseObject']['id']
     
-    time.sleep(3)
+    time.sleep(10)
     sc = 0
     while (sc < 1):
         r1 = s.get('https://app.flinko.com:8110/optimize/v1/executionResponse/result/' + exid, headers=head)
