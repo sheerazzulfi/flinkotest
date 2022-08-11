@@ -1,5 +1,6 @@
 import time
 from aifc import Error
+from turtle import Terminator
 
 import requests
 import json
@@ -40,10 +41,11 @@ def login(token):
                     raise Test_Failed
                 elif fr2 == 'WARNING':
                     print('End Result : ' +'Warning')
-                elif (fr1 == "Terminated"):
-                    print("End Result : " + fr1)
                 else:
-                    print("End Result : " + "Test Passed")
+                    print("End Result : " + 'Test Passed')
+                sc = 1
+            elif (fr1 == 'Terminated'):
+                print("End Result : " + fr1)
                 sc = 1
         time.sleep(10)
 
