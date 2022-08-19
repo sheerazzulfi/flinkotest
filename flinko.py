@@ -1,7 +1,6 @@
 import time
 from aifc import Error
 
-
 import requests
 import json
 import sys
@@ -19,7 +18,7 @@ def login(token):
         "Content-Type": "application/json"
     }
     head["Authorization"] = "Bearer " + token
-    suiteid = 'SUITE1004'
+    suiteid = 'SUITE1016'
     baseUrl = 'https://backend.fireflink.com'
     pes = s.post(baseUrl+':8109/optimize/v1/dashboard/execution/suite/' + suiteid, headers=head)
     out = json.loads(pes.content)
@@ -41,6 +40,8 @@ def login(token):
                     raise Test_Failed
                 elif fr2 == 'WARNING':
                     print('End Result : ' +'Warning')
+		        elif fr2 == 'Aborted':
+                    print('End Result : ' +'Aborted')
                 else:
                     print("End Result : " + 'Test Passed')
                 sc = 1
@@ -49,4 +50,4 @@ def login(token):
                 sc = 1
         time.sleep(10)
 
-login(token)
+login(token) 
