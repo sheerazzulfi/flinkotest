@@ -40,7 +40,7 @@ def login(token):
                     raise Test_Failed
                 elif fr2 == 'WARNING':
                     print('End Result : ' +'Warning')
-		        elif fr2 == 'Aborted':
+		elif fr2 == 'Aborted':
                     print('End Result : ' +'Aborted')
                 else:
                     print("End Result : " + 'Test Passed')
